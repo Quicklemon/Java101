@@ -1,0 +1,65 @@
+package classroom;
+
+import java.util.Scanner;
+
+public class Tester {
+	
+	public static void main(String[] args){
+		Scanner sc = new Scanner(System.in);
+		
+		clock bigBen = new clock(3, 80);
+		String time = bigBen.getTime();
+		System.out.println(time);
+		if(bigBen.getHours() >= 21 || bigBen.getHours() < 7) {
+			System.out.println("Go to bed!");
+		}
+		else {
+			System.out.println("It is day");
+		}
+		
+		
+		
+			
+	}	
+	
+}
+
+
+package classroom;
+
+public class clock {
+	private int hours;
+	private int minutes;
+	public clock(int startHours, int startMinutes) {
+		hours = startHours;
+		minutes = startMinutes;
+		
+	}
+	
+	public String getTime() {
+	
+		//return "It is " + hours + " : " + minutes;
+		hours = (int)(Math.random()*24);
+		minutes = (int)(Math.random()*60);
+		return "it is " + hours + " : " + minutes;
+		
+	}
+	public int getHours() {
+		return hours;
+	}
+	
+	public void setTime(int newHours, int newMinutes) {
+		hours = newHours;
+		minutes = newMinutes;
+		if(minutes > 60) {
+			hours += minutes/60;
+			minutes = minutes % 60;
+		}
+			
+	}
+	
+	
+
+	
+}
+
